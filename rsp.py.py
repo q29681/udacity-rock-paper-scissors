@@ -39,9 +39,8 @@ class ReflectPlayer(Player):
 
 
 class CyclePlayer(Player):
-    def move(self):
-        my_move = self.my_move.learn
-        return my_move
+    def learn(self, my_move, their_move):
+        self.my_move = my_move
 
 
 def beats(one, two):
