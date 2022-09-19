@@ -23,9 +23,9 @@ class RandomPlayer(Player):
 class HumanPlayer(Player):
     def move(self):
         while True:
-            move = input("Please type Rock, Paper, Scissors >").lower()
-            if move in moves:
-                return move
+            move_human = input("Please type Rock, Paper, Scissors >").lower()
+            if move_human in moves:
+                return move_human
             else:
                 print("Oops, invalid input!")
 
@@ -39,8 +39,13 @@ class ReflectPlayer(Player):
 
 
 class CyclePlayer(Player):
-    def learn(self, my_move, their_move):
-        self.my_move = my_move
+    def move(self):
+        if self.my_move == moves[0]:
+            return moves[1]
+        elif self.my_move == moves[1]:
+            return moves[2]
+        else:
+            return moves[0]
 
 
 def beats(one, two):
